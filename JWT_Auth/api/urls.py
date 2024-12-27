@@ -1,5 +1,5 @@
 from django.urls import path
-#nothing
+#nothing added data
 urlpatterns = [
     
 ]
