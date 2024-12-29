@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 
 class RegisterView(APIView):
     def get(self,request):
-        return Response({"Message":"All user data"})
-    
+        return Response({"Message":"All user data from registerview"})
+
     def post(self, request):
         return Response({"Message":"Register New User"})
 
