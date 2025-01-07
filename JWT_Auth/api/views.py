@@ -14,12 +14,15 @@ from .models import StudentData
 
 
 class StudentView(APIView):
-    def get(self,request):
+    def get(self,request,name=None):
+        if name:
+            if student := StudentData.objects.filter(name=name).first():
+                seri = StudentDataSerializer(student)
+            else:
+                return Response({"Message":"Student not available"})
 
-        data = StudentData.objects.all()
-
-        seri = StudentDataSerializer(data, many=True)   
-
-
+        else:
+            data = StudentData.objects.all()
+            seri = StudentDataSerializer(data, many=True)   
         return Response({"Messgae":"Responce from student get", "Data":seri.data})
 
