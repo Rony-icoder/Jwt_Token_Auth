@@ -1,20 +1,16 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from rest_framework.views import APIView
-
-
 from rest_framework.response import Response
-from rest_framework.response import Response
-
 from .serial import StudentDataSerializer
-from .serial import StudentDataSerializer
-
 from .models import StudentData
-from .models import StudentData
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class StudentView(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self,request,name=None):
+
         if name:
             if student := StudentData.objects.filter(name=name).first():
                 seri = StudentDataSerializer(student)
