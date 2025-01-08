@@ -16,3 +16,7 @@ def longestCommonPrefix(self, strs):
                 
 strs =  [""]
 
+strs =  [""]
+strs =  [""]
+strs =  [""]
+
